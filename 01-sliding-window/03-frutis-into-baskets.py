@@ -21,3 +21,35 @@ Explanation: We can put 3 'B' in one basket and two 'C' in the other basket.
 This can be done if we start with the second letter: ['B', 'C', 'B', 'B', 'C']
 
 """
+
+
+
+def fruits_into_baskets(arr):
+    pass
+
+
+
+
+
+
+
+
+
+
+
+
+example_1 = ['A', 'B', 'C', 'A', 'C']
+expected_1 = 3
+
+
+example_2 = ['A', 'B', 'C', 'B', 'B', 'C']
+expected_2 = 5 
+
+
+if __name__ == "__main__":
+    
+    print(f"output: {fruits_into_baskets(example_1)}, exp: {expected_1}")
+    print(f"output: {fruits_into_baskets(example_2)}, exp: {expected_2}")
+
+    assert fruits_into_baskets(example_1) == expected_1
+    assert fruits_into_baskets(example_2) == expected_2
