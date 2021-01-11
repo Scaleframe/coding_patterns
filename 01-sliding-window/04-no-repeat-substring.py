@@ -59,7 +59,36 @@ def no_repeat_substring(str):
     
     return max_length
 
-            
+
+"""
+Notes: 
+
+    This function will move forward until it see's a repeating character. 
+    Then it will shrink it's sliding window until the current end is the new start. 
+
+    Example: 
+
+    string = abccde
+
+    a, b, c, c <--- when it gets here
+        
+        b, c, c < -- it will subtract from the front
+
+            c, c
+            c <-- until the repeated char is the new start
+
+            c, d, e < --- and continue to the end. 
+
+Improvment ideas: 
+
+    If you are shrinking the window until you get to the second repeated char
+
+        then you can just swap the window start with right_char + 1 and go from there. 
+
+Time Complexity:
+    O(N)
+
+"""            
 
 if __name__ == "__main__":
 
