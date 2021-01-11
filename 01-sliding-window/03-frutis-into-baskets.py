@@ -25,29 +25,48 @@ This can be done if we start with the second letter: ['B', 'C', 'B', 'B', 'C']
 
 
 def fruits_into_baskets(arr):
-    pass
+    window_start = 0
+    window_end = 0 
+    max_length = 0
+    char_frequency = {}
+
+    # expand the sliding window end through the array
+    for window_end in range(len(arr)):
+        
+        # update the char frequency dictionary with 
+                            # the values we traverse 
+        right_char = arr[window_end]
+        if right_char not in char_frequency:
+            char_frequency[right_char] = 0   
+        char_frequency[right_char] += 1
+        
+        # when max "baskets" are exceeded, prune the 
+                        # start of the sliding window
+        while len(char_frequency) > 2:
+            left_char = arr[window_start]
+            char_frequency[left_char] -= 1
+            if char_frequency[left_char] == 0:
+                del char_frequency[left_char]
+            
+            # shrink the window
+            window_start += 1 
+
+        # update the max length        
+        max_length = max(max_length, window_end - window_start + 1)
+    
+    return max_length
 
 
-
-
-
-
-
-
-
-
-
-
-example_1 = ['A', 'B', 'C', 'A', 'C']
-expected_1 = 3
-
-
-example_2 = ['A', 'B', 'C', 'B', 'B', 'C']
-expected_2 = 5 
 
 
 if __name__ == "__main__":
-    
+
+    example_1 = ['A', 'B', 'C', 'A', 'C']
+    expected_1 = 3
+
+    example_2 = ['A', 'B', 'C', 'B', 'B', 'C']
+    expected_2 = 5
+
     print(f"output: {fruits_into_baskets(example_1)}, exp: {expected_1}")
     print(f"output: {fruits_into_baskets(example_2)}, exp: {expected_2}")
 
