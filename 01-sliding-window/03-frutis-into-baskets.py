@@ -72,3 +72,6 @@ if __name__ == "__main__":
 
     assert fruits_into_baskets(example_1) == expected_1
     assert fruits_into_baskets(example_2) == expected_2
+
+    print("-"*20)
+    print("All Tests Passed!")
